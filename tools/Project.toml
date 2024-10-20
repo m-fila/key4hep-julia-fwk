@@ -2,6 +2,7 @@
 ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 GraphMLReader = "8e6830a9-644c-4485-8539-40ee18e3ca8c"
 JuliaFormatter = "98e50ef6-434e-11e9-1051-2b60c6c9e899"
 MetaGraphs = "626554b9-1ddb-594c-aa3c-2596fe9399a5"
@@ -13,6 +14,7 @@ Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 ArgParse = "1.2"
 CSV = "0.10"
 DataFrames = "1.6"
+Distributed = "1.11"
 GraphMLReader = "0.1"
 JuliaFormatter = "1"
 MetaGraphs = "0.7"
@@ -23,3 +25,5 @@ julia = "1.11"
 
 [sources]
 GraphMLReader = {rev = "master", url = "https://github.com/SmalRat/GraphMLReader.jl"}
+Distributed = {rev = "jps/threadsafe_workerstate", url = "https://github.com/JamesWrigley/Distributed.jl"}
+

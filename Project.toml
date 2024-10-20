@@ -19,6 +19,7 @@ Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 
 [sources]
 GraphMLReader = {rev = "master", url = "https://github.com/SmalRat/GraphMLReader.jl"}
+Distributed = {rev = "jps/threadsafe_workerstate", url = "https://github.com/JamesWrigley/Distributed.jl"}
 
 [compat]
 Aqua = "0.8"
