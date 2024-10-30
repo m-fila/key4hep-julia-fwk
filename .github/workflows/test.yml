@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
 jobs:
   test:
-    name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }} (${{matrix.test_args}})
+    name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }} (-t ${{matrix.threads}} ${{matrix.test_args}})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -26,6 +26,9 @@ jobs:
         test_args:
           - 'no-fast'
           - 'all'
+        threads:
+          - 1
+          - auto
     steps:
       - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v2
@@ -37,3 +40,5 @@ jobs:
       - uses: julia-actions/julia-runtest@v1
         with:
           test_args: ${{matrix.test_args}}
+        env:
+          JULIA_NUM_THREADS: ${{matrix.threads}}
