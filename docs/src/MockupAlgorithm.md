@@ -1,0 +1,3 @@
+# MockupAlgorithm
+
+CPU-crunching

@@ -1,0 +1,14 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+FrameworkDemo ="cfbf7e84-66d2-421e-b147-9edb7a8672d2"
+GraphMLReader = "8e6830a9-644c-4485-8539-40ee18e3ca8c"
+
+[compat]
+Documenter = "1.7"
+FrameworkDemo = "0.1"
+GraphMLReader = "0.1"
+julia = "1.11"
+
+[sources]
+FrameworkDemo = {path = ".."}
+GraphMLReader = {rev = "master", url = "https://github.com/SmalRat/GraphMLReader.jl"}
