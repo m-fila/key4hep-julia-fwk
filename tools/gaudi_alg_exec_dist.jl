@@ -7,6 +7,7 @@ using Plots
 using Printf
 using Statistics
 using MetaGraphs
+using SQLite
 import GraphMLReader
 
 function parse_args(args)
@@ -14,12 +15,12 @@ function parse_args(args)
                          """
                          Calculate distributions of algorithm execution duration time
                          from a timeline extracted with Gaudi TimelineSvc or data-flow graph
-                         or from a chrome trace JSON file
+                         or from a chrome trace JSON file or from Nvidia Nsight Systems sqlite file.
                          """)
 
     @add_arg_table! s begin
         "input"
-        help = "Input Gaudi timeline CSV file or data-flow graph GraphML file or chrome trace JSON file"
+        help = "Input Gaudi timeline CSV file or data-flow graph GraphML file or chrome trace JSON file or Nvidia Nsight Systems sqlite file"
         arg_type = String
         required = true
 
@@ -63,6 +64,14 @@ function durations_from_json(filename)
             for x in data[:traceEvents] if x["ph"] == "X" && x["cat"] == "compute"]
 end
 
+function durations_from_sqlite(filename)
+    db = SQLite.DB(filename)
+    query = "SELECT start,end FROM NVTX_EVENTS WHERE domainId=1 AND eventType=60" # domainId=1 is for FrameworkDemo algorithms eventType=60 is for NvtxStartEndRange
+    df = DataFrame(SQLite.DBInterface.execute(db, query))
+    df.duration = (df.end .- df.start) ./ 1e9
+    return df.duration
+end
+
 function (@main)(args)
     parsed_args = parse_args(args)
 
@@ -75,6 +84,8 @@ function (@main)(args)
         durations = durations_from_graphml(input_file)
     elseif ext == ".json"
         durations = durations_from_json(input_file)
+    elseif ext == ".sqlite"
+        durations = durations_from_sqlite(input_file)
     else
         @error "Unsupported file extension: $ext"
         return
