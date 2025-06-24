@@ -32,7 +32,9 @@ Manifest.toml
 # Data/results/output files
 results/
 *.nsys-rep
+*.qdstrm
 *.sqlite
+
 
 # Local Julia preferences
 LocalPreferences.toml
