@@ -279,6 +279,8 @@ function (@main)(raw_args)
                 end
             end
         end
+
+        GC.gc()
     end
 
     if !isnothing(profile_mode)
