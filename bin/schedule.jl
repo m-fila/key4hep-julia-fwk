@@ -177,6 +177,7 @@ function timings_to_df(stats, event_count, max_concurrent, coeffs)
     df.event_count .= event_count
     df.max_concurrent .= max_concurrent
     df.coefs .= [coeffs for _ in 1:nrow(df)]
+    df.gcthreads .= ENV["JULIA_NUM_GC_THREADS"]
     return df
 end
 
