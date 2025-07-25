@@ -25,15 +25,16 @@ Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 Profile = "9abbd945-dff8-562f-b5e8-e1ebf5ef1b79"
 ProfileCanvas = "efd6af41-a80b-495e-886c-e51b0c7d77a3"
 
-[sources]
-GraphMLReader = {rev = "master", url = "https://github.com/m-fila/GraphMLReader.jl"}
+[sources.GraphMLReader]
+rev = "master"
+url = "https://github.com/m-fila/GraphMLReader.jl"
 
 [compat]
 Aqua = "0.8"
 ArgParse = "1.2"
 CSV = "0.10"
 Colors = "0.13.1"
-Dagger = "0.18.16"
+Dagger = "0.18.16, 0.19"
 DataFrames = "1.6"
 Distributed = "1.11"
 DistributedNext = "1.0"
