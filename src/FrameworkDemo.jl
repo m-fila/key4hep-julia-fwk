@@ -7,4 +7,8 @@ include("visualization.jl")
 include("cpu_crunching.jl")
 include("mockup.jl")
 
+include("bin/schedule.jl")
+
+import .Schedule: main
+
 end # FrameworkDemo

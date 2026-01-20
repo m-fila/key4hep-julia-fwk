@@ -1,5 +1,7 @@
+module Schedule
+
 using ArgParse
-using FrameworkDemo
+using ..FrameworkDemo
 using Logging
 using DataFrames
 using CSV
@@ -263,3 +265,5 @@ function (@main)(raw_args)
     end
     return 0
 end
+
+end # module Schedule

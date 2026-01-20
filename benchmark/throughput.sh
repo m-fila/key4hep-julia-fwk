@@ -8,7 +8,7 @@ THREADS_PER_SLOT=2
 EVENTS_PER_SLOT=2
 
 PROJECT="$(dirname $0)/.."
-EXEC="$(dirname $0)/../bin/schedule.jl"
+EXEC="-m FrameworkDemo"
 
 for threads in ${THREADS_SEQ}; do
     concurrent=$((threads/THREADS_PER_SLOT))
